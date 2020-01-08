@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Motor Vehicle Tax Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
+</head>
+<body>
+<div class="w-25 mx-auto">
+    <form id="tax-form">
+        <h1>Калкулатор</h1>
+        <h2>Пресметни данъка на автомобила си</h2>
+        <div class="form-group">
+            <label for="municipality">Община по постоянен адрес / седалище на собственика</label>
+            <select class="form-control" name="municipality" id="municipality">
+                <option value="Sofia">София</option>
+                <!--<option value="Blagoevgrad">Благоевград</option>-->
+                <option value="Burgas">Бургас</option>
+                <option value="Varna">Варна</option>
+                <!--<option value="Veliko Tarnovo">Велико Търново</option>-->
+                <option value="Vidin">Видин</option>
+                <option value="Vraca">Враца</option>
+                <!--<option value="Gabrobo">Габрово</option>-->
+                <!--<option value="Dobrich">Добрич</option>-->
+                <!--<option value="Kardzhali">Кърджали</option>-->
+                <!--<option value="Kyustendil">Кюстендил</option>-->
+                <option value="Lovech">Ловеч</option>
+                <!--<option value="Montana">Монтана</option>-->
+                <!--<option value="Pazardzhik">Пазарджик</option>-->
+                <!--<option value="Pernik">Перник</option>-->
+                <!--<option value="Pleven">Плевен</option>-->
+                <option value="Plovdiv">Пловдив</option>
+                <option value="Razgrad">Разград</option>
+                <!--<option value="Ruse">Русе</option>-->
+                <!--<option value="Silistra">Силистра</option>-->
+                <option value="Sliven">Сливен</option>
+                <!--<option value="Smolyan">Смолян</option>-->
+                <!--<option value="Stara Zagora">Стара Загора</option>-->
+                <option value="Targovishte">Търговище</option>
+                <option value="Haskovo">Хасково</option>
+                <!--<option value="Shumen">Шумен</option>-->
+                <!--<option value="Yambol">Ямбол</option>-->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="age">Възраст на превозното средство в години</label>
+            <select class="form-control" name="age" id="age">
+                <option value="0">от 0 до 5 години</option>
+                <option value="1">от 6 до 10 години</option>
+                <option value="2">от 11 до 15 години години</option>
+                <option value="3">от 16 до 20 години</option>
+                <option value="4">над 20 години</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="euro-category">Европейски стандарт за изгорели газове</label>
+            <select class="form-control" name="euro-category" id="euro-category">
+                <option value="0">без екологична категория</option>
+                <option value="1">Евро 1</option>
+                <option value="2">Евро 2</option>
+                <option value="3">Евро 3</option>
+                <option value="4">Евро 4</option>
+                <option value="5">Евро 5</option>
+                <option value="6">Евро 6</option>
+                <option value="7">EEV</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="power-in-kw">Мощност в kW</label>
+            <input class="form-control" type="number" name="power-in-kw" id="power-in-kw" value="74">
+        </div>
+    </form>
+    <h1 style="display: none"></h1>
+    <input id="calculate-button" type="button" onClick="return calculateTax(event);" value="Изчисли"/>
+</div>
+<script src="tax-calculator.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+body, select, input, option {
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    height: 100%;
+    background-image: url('background-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body {
+    background: transparent;
+}
+
+div {
+    margin-top: 5%;
+    color: wheat;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+h1 {
+    color: wheat;
+}
