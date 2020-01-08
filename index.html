@@ -5,13 +5,13 @@
     <title>Motor Vehicle Tax Calculator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap">
 </head>
 <body>
-<div class="w-25 mx-auto">
+<div class="w-50 mx-auto">
     <form id="tax-form">
-        <h1>Калкулатор</h1>
-        <h2>Пресметни данъка на автомобила си</h2>
+        <h1 class="text-center">Калкулатор</h1>
+        <h2 class="text-center">Пресметни данъка на автомобила си</h2>
         <div class="form-group">
             <label for="municipality">Община по постоянен адрес / седалище на собственика</label>
             <select class="form-control" name="municipality" id="municipality">
@@ -73,7 +73,7 @@
         </div>
     </form>
     <h1 style="display: none"></h1>
-    <input id="calculate-button" type="button" onClick="return calculateTax(event);" value="Изчисли"/>
+    <input class="col text-center btn btn-success" id="calculate-button" type="button" onClick="return calculateTax(event);" value="Изчисли"/>
 </div>
 <script src="tax-calculator.js"></script>
 </body>

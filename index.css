@@ -1,5 +1,6 @@
-body, select, input, option {
-    font-family: 'Montserrat', sans-serif;
+body, label, select, input, option {
+    font-family: 'PT Sans', sans-serif;
+    font-size: xx-large;
 }
 
 html {
@@ -14,9 +15,9 @@ body {
 }
 
 div {
-    margin-top: 5%;
+    margin-top: 3%;
     color: wheat;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    text-shadow: 2px 2px 2px darkolivegreen;
 }
 
 h1 {
