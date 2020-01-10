@@ -25,7 +25,10 @@ let data = {
     },
     "Gabrobo": {},
     "Dobrich": {},
-    "Kardzhali": {},
+    "Kardzhali": {
+        "Euro category": [1.2, 1.2, 1.2, 1.05, 0.95, 0.7, 0.6, 0.6],
+        "Power factor": [0.65, 0.81, 1.38, 1.55, 2, 2.62]
+    },
     "Kyustendil": {},
     "Lovech": {
         "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
@@ -102,7 +105,7 @@ function calculateTax(e) {
         }
 
         taxForm.style.display = "none";
-        let tax = (powerInKW * powerFactor) * ageFactor * euroCategoryFactor;
+        let tax = powerInKW * powerFactor * ageFactor * euroCategoryFactor;
 
         resultElement.textContent = `Вашият данък е ${tax.toFixed(2)}лв.`;
         resultElement.style.display = "block";

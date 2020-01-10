@@ -1,4 +1,4 @@
-body, label, select, input, option {
+body, label, select, input {
     font-family: 'PT Sans', sans-serif;
     font-size: xx-large;
 }
@@ -16,10 +16,23 @@ body {
 
 div {
     margin-top: 3%;
-    color: wheat;
-    text-shadow: 2px 2px 2px darkolivegreen;
+    color: white;
+    text-shadow: 3px 3px 3px darkolivegreen;
 }
 
 h1 {
-    color: wheat;
+    color: white;
+}
+
+select, input {
+    text-align-last:center;
+    font-family: tahoma;
+}
+
+input {
+    width: 50%;
+}
+
+.form-control {
+    font-size: 20px;
 }
