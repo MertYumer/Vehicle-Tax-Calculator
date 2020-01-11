@@ -56,7 +56,10 @@ let data = {
         "Power factor": [0.34, 0.54, 1.36, 1.53, 2, 2.6]
     },
     "Smolyan": {},
-    "Stara Zagora": {},
+    "Stara Zagora": {
+        "Euro category": [1.1, 1.1, 1.1, 1, 0.9, 0.7, 0.5, 0.5],
+        "Power factor": [0.5, 0.7, 1.5, 1.7, 1.8, 2.2]
+    },
     "Targovishte": {
         "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
         "Power factor": [0.4, 0.6, 1.2, 1.3, 1.7, 2.2]
