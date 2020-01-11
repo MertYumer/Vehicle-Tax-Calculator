@@ -5,7 +5,10 @@ let data = {
         "Euro category": [1.4, 1.4, 1.4, 1.1, 1, 0.6, 0.4, 0.4],
         "Power factor": [0.34, 0.54, 1.21, 1.42, 1.84, 2.42]
     },
-    "Blagoevgrad": {},
+    "Blagoevgrad": {
+        "Euro category": [1.1, 1.1, 1.1, 1, 0.9, 0.8, 0.6, 0.6],
+        "Power factor": [0.34, 0.54, 1.1, 1.4, 1.8, 2.1]
+    },
     "Burgas": {
         "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
         "Power factor": [0.34, 0.54, 1.65, 1.84, 2.4, 3.15]
