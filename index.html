@@ -68,13 +68,24 @@
             </select>
         </div>
         <div class="form-group text-center">
-            <label for="power-in-kw">Мощност в kW</label>
-            <input class="w-50 mx-auto form-control" type="number" name="power-in-kw" id="power-in-kw" value="74">
+            <label for="power">Мощност в:</label>
+            <div>
+                <input type="radio" id="kW" name="drone" value="kW" checked
+                       onClick="return changeInputFieldDefaultValue(event);">
+                <label for="kW">киловати</label>
+            </div>
+            <div>
+                <input type="radio" id="hp" name="drone" value="hp"
+                       onClick="return changeInputFieldDefaultValue(event);">
+                <label for="hp">конски сили</label>
+            </div>
+            <input class="w-50 mx-auto form-control" type="number" name="power" id="power" value="66">
         </div>
     </form>
     <h1 class="text-center" style="display: none"></h1>
     <div class="form-group text-center">
-        <input class="w-50 form-control btn btn-success" id="calculate-button" type="button" onClick="return calculateTax(event);"
+        <input class="w-50 form-control btn btn-success" id="calculate-button" type="button"
+               onClick="return calculateTax(event);"
                value="Изчисли"/>
     </div>
 </div>

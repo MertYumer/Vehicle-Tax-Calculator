@@ -118,10 +118,15 @@ function calculateTax(e) {
         let municipality = document.getElementById("municipality").value;
         let ageIndex = parseInt(document.getElementById("age").value);
         let euroCategoryIndex = parseInt(document.getElementById("euro-category").value);
-        let powerInKW = parseInt(document.getElementById("power-in-kw").value);
+        let power = parseInt(document.getElementById("power").value);
+        let hpRadioButton = document.getElementById("hp");
 
-        if (!powerInKW) {
+        if (!power) {
             return alert("Моля, въведете мощността на превозното средство.");
+        }
+
+        if (hpRadioButton.checked) {
+            power = Math.round(power * 0.73549875);
         }
 
         let town = data[municipality];
@@ -129,25 +134,35 @@ function calculateTax(e) {
         let euroCategoryFactor = town["Euro category"][euroCategoryIndex];
         let powerFactor;
 
-        if (powerInKW <= 55) {
+        if (power <= 55) {
             powerFactor = town["Power factor"][0];
-        } else if (powerInKW > 55 && powerInKW <= 74) {
+        } else if (power > 55 && power <= 74) {
             powerFactor = town["Power factor"][1];
-        } else if (powerInKW > 74 && powerInKW <= 110) {
+        } else if (power > 74 && power <= 110) {
             powerFactor = town["Power factor"][2];
-        } else if (powerInKW > 110 && powerInKW <= 150) {
+        } else if (power > 110 && power <= 150) {
             powerFactor = town["Power factor"][3];
-        } else if (powerInKW > 150 && powerInKW <= 245) {
+        } else if (power > 150 && power <= 245) {
             powerFactor = town["Power factor"][4];
-        } else if (powerInKW > 245) {
+        } else if (power > 245) {
             powerFactor = town["Power factor"][5];
         }
 
         taxForm.style.display = "none";
-        let tax = powerInKW * powerFactor * ageFactor * euroCategoryFactor;
+        let tax = power * powerFactor * ageFactor * euroCategoryFactor;
 
         resultElement.textContent = `Вашият данък е ${tax.toFixed(2)}лв.`;
         resultElement.style.display = "block";
         e.target.value = "Направи друго изчисление";
+    }
+}
+
+function changeInputFieldDefaultValue(e) {
+    let input = document.getElementById("power");
+
+    if (e.target.value === "kW") {
+        input.defaultValue = 66;
+    } else {
+        input.defaultValue = 90;
     }
 }
