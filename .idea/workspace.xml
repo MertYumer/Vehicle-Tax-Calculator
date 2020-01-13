@@ -44,9 +44,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tax-calculator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="1088">
+              <caret line="432" lean-forward="true" selection-start-line="432" selection-end-line="432" />
               <folding>
+                <element signature="e#54#1348#0" />
                 <element signature="e#305#1346#0" />
                 <element signature="e#325#514#0" />
                 <element signature="e#534#716#0" />
@@ -100,6 +101,7 @@
                 <element signature="e#9838#10018#0" />
                 <element signature="e#10041#10057#0" />
                 <element signature="e#10262#10467#0" />
+                <element signature="e#10482#10687#0" />
                 <element signature="e#10702#10907#0" />
                 <element signature="e#10922#11127#0" />
                 <element signature="e#11142#11347#0" />
@@ -121,7 +123,6 @@
                 <element signature="e#14442#14647#0" />
                 <element signature="e#14662#14867#0" />
                 <element signature="e#14886#15091#0" />
-                <element signature="n#!!block;n#calculateTax#0" />
                 <element signature="n#!!block;n#changeInputFieldDefaultValue#0" />
                 <element signature="n#!!block;n#changeSelectOptions#0" />
               </folding>
@@ -147,12 +148,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/index.css" />
-        <option value="$PROJECT_DIR$/tax-calculator.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/tax-calculator.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="927" />
     <option name="height" value="867" />
   </component>
@@ -242,15 +243,15 @@
       <workItem from="1578832463771" duration="1376000" />
       <workItem from="1578840574880" duration="2040000" />
       <workItem from="1578850556899" duration="3804000" />
-      <workItem from="1578921159323" duration="5716000" />
+      <workItem from="1578921159323" duration="6204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45490000" />
+    <option name="totallyTimeSpent" value="45978000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1311787" />
@@ -301,9 +302,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tax-calculator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="1088">
+          <caret line="432" lean-forward="true" selection-start-line="432" selection-end-line="432" />
           <folding>
+            <element signature="e#54#1348#0" />
             <element signature="e#305#1346#0" />
             <element signature="e#325#514#0" />
             <element signature="e#534#716#0" />
@@ -357,6 +359,7 @@
             <element signature="e#9838#10018#0" />
             <element signature="e#10041#10057#0" />
             <element signature="e#10262#10467#0" />
+            <element signature="e#10482#10687#0" />
             <element signature="e#10702#10907#0" />
             <element signature="e#10922#11127#0" />
             <element signature="e#11142#11347#0" />
@@ -378,7 +381,6 @@
             <element signature="e#14442#14647#0" />
             <element signature="e#14662#14867#0" />
             <element signature="e#14886#15091#0" />
-            <element signature="n#!!block;n#calculateTax#0" />
             <element signature="n#!!block;n#changeInputFieldDefaultValue#0" />
             <element signature="n#!!block;n#changeSelectOptions#0" />
           </folding>

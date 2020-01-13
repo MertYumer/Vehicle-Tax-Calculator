@@ -423,6 +423,10 @@ function calculateTax(e) {
             return alert("Моля, въведете мощността на превозното средство.");
         }
 
+        if (power <= 0) {
+            return alert("Моля, въведете число за мощност, което е положително.");
+        }
+
         if (hpRadioButton.checked) {
             power = Math.round(power * 0.73549875);
         }
