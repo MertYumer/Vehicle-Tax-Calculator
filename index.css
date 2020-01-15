@@ -1,5 +1,5 @@
 body, label, select, input {
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'tahoma', sans-serif;
     font-size: larger;
 }
 
@@ -35,7 +35,6 @@ h1 {
 
 select, input {
     text-align-last:center;
-    font-family: tahoma;
 }
 
 .form-control {
