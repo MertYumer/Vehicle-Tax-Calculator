@@ -8,14 +8,20 @@ html {
     background-attachment: fixed;
     background-size: auto 100%;
     background-position: center;
+	height: 100%;
 }
 
 body {
     background: transparent;
+	height: 100%;
 }
 
-h1 {
-    margin-top: 3%;
+#formDiv {
+	height: 100%; 
+}
+
+#displayFormButton {
+	font-size: 20px;
 }
 
 div {
