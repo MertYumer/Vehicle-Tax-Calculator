@@ -430,20 +430,126 @@ let data = {
         }
     },
     "Kyustendil": {
+        "Kocherinovo": {
+            "Cyrillic name": "Кочериново",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.9, 0.7, 0.5, 0.5],
+            "Power factor": [0.6, 0.81, 1.6, 1.65, 2, 3]
+        },
         "Kyustendil": {
             "Cyrillic name": "Кюстендил",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
             "Power factor": [0.44, 0.6, 1.21, 1.35, 1.6, 2.1]
+        },
+        "Nevestino": {
+            "Cyrillic name": "Невестино",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.4, 0.6, 1.15, 1.3, 1.6, 2.1]
+        },
+        "Rila": {
+            "Cyrillic name": "Рила",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.7, 0.9, 1.3, 1.7, 1.9, 2.2]
+        },
+        "Dupnitsa": {
+            "Cyrillic name": "Дупница",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.9, 0.7, 0.5, 0.5],
+            "Power factor": [0.4, 0.54, 1.1, 1.23, 1.6, 2.1]
         }
     },
     "Lovech": {
+        "Apriltsi": {
+            "Cyrillic name": "Априлци",
+            "Euro category": [1.25, 1.25, 1.25, 1.05, 0.9, 0.7, 0.5, 0.5],
+            "Power factor": [0.48, 0.76, 1.54, 1.72, 2.24, 2.94]
+        },
+        "Letnitsa": {
+            "Cyrillic name": "Летница",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
         "Lovech": {
             "Cyrillic name": "Ловеч",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
             "Power factor": [0.34, 0.54, 1.65, 1.84, 2.4, 3.15]
+        },
+        "Lukovit": {
+            "Cyrillic name": "Луковит",
+            "Euro category": [1.3, 1.3, 1.3, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.5, 0.7, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Teteven": {
+            "Cyrillic name": "Тетевен",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.5, 0.55, 1.15, 1.3, 1.6, 2.1]
+        },
+        "Troyan": {
+            "Cyrillic name": "Троян",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.7, 0.6, 0.6],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Ugarchin": {
+            "Cyrillic name": "Угърчин",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.41, 0.65, 1.32, 1.48, 1.92, 2.52]
+        },
+        "Yablanitsa": {
+            "Cyrillic name": "Ябланица",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.45, 0.59, 1.15, 1.28, 1.6, 2.1]
         }
     },
-    "Montana": {},
+    "Montana": {
+        "Berkovitsa": {
+            "Cyrillic name": "Берковица",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.9, 0.8, 0.6, 0.6],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Boychinovtsi": {
+            "Cyrillic name": "Бойчиновци",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Brusartsi": {
+            "Cyrillic name": "Брусарци",
+            "Euro category": [1.2, 1.2, 1.2, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.6, 0.7, 1.1, 1.3, 1.6, 2.1]
+        },
+        "Valchedram": {
+            "Cyrillic name": "Вълчедръм",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Varshets": {
+            "Cyrillic name": "Вършец",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Georgi Damyanovo": {
+            "Cyrillic name": "Георги Дамяново",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Lom": {
+            "Cyrillic name": "Лом",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.4, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Medkovets": {
+            "Cyrillic name": "Медковец",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Chiprovtsi": {
+            "Cyrillic name": "Чипровци",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Yakimovo": {
+            "Cyrillic name": "Якимово",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        }
+    },
     "Pazardzhik": {
         "Pazardzhik": {
             "Cyrillic name": "Пазарджик",
@@ -479,7 +585,9 @@ let data = {
             "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
         }
     },
-    "Ruse": {},
+    "Ruse": {
+
+    },
     "Silistra": {
         "Silistra": {
             "Cyrillic name": "Силистра",
@@ -508,7 +616,9 @@ let data = {
             "Power factor": [0.34, 0.54, 1.21, 1.42, 1.84, 2.42]
         }
     },
-    "Sofia Region": {},
+    "Sofia Region": {
+
+    },
     "Stara Zagora": {
         "Stara Zagora": {
             "Cyrillic name": "Стара Загора",
