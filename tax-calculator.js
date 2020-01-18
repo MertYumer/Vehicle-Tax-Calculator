@@ -551,10 +551,55 @@ let data = {
         }
     },
     "Pazardzhik": {
-        "Pazardzhik": {
+        "Belovo": {
+            "Cyrillic name": "Белово",
+            "Euro category": [1.3, 1.15, 1.15, 1.05, 0.9, 0.8, 0.6, 0.6],
+            "Power factor": [0.34, 0.7, 1.43, 1.59, 1.8, 2.1]
+        },
+		"Pazardzhik": {
             "Cyrillic name": "Пазарджик",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.9, 0.8, 0.6, 0.6],
             "Power factor": [0.4, 0.54, 1.1, 2, 2, 2.1]
+        },
+		"Bratsigovo": {
+            "Cyrillic name": "Брацигово",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.52, 0.7, 1.3, 1.5, 2, 2.5]
+        },
+		"Velingrad": {
+            "Cyrillic name": "Велинград",
+            "Euro category": [1.1, 1.1, 1.1, 1.05, 0.9, 0.7, 0.5, 0.5],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+		"Lesichovo": {
+            "Cyrillic name": "Лесичово",
+            "Euro category": [1.2, 1.2, 1.2, 1, 0.9, 0.7, 0.5, 0.5],
+            "Power factor": [0.5, 0.6, 1.3, 1.4, 1.6, 2.1]
+        },
+		"Panagyurishte": {
+            "Cyrillic name": "Панагюрище",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+		"Peshtera": {
+            "Cyrillic name": "Пещера",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+		"Septemvri": {
+            "Cyrillic name": "Септември",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.45, 0.56, 1.1, 1.23, 1.6, 2.1]
+        },
+		"Sarnitsa": {
+            "Cyrillic name": "Сърница",
+            "Euro category": [1.1, 1.1, 1.1, 1, 1, 0.8, 0.6, 0.6],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+		"Batak": {
+            "Cyrillic name": "Батак",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
         }
     },
     "Pernik": {
