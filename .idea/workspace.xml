@@ -12,12 +12,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+              <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
               <folding>
                 <element signature="n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#select#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -46,6 +46,7 @@
                 <element signature="e#16002#17040#0" />
                 <element signature="e#17060#18081#0" />
                 <element signature="e#18097#19740#0" />
+                <element signature="e#19757#21823#0" />
                 <element signature="n#!!block;n#changeInputFieldDefaultValue#0" />
                 <element signature="n#!!block;n#changeSelectOptions#0" />
               </folding>
@@ -85,7 +86,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -97,6 +97,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -170,15 +171,15 @@
       <workItem from="1578927734809" duration="157000" />
       <workItem from="1579117437027" duration="1382000" />
       <workItem from="1579199422386" duration="1207000" />
-      <workItem from="1579273062456" duration="599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49323000" />
+    <option name="totallyTimeSpent" value="48724000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1311787" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -223,20 +224,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-          <folding>
-            <element signature="n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#select#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#3;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tax-calculator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -256,6 +243,20 @@
             <element signature="e#19757#21823#0" />
             <element signature="n#!!block;n#changeInputFieldDefaultValue#0" />
             <element signature="n#!!block;n#changeSelectOptions#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+          <folding>
+            <element signature="n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#select#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#3;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
