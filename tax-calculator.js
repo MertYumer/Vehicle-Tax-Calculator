@@ -1,3 +1,85 @@
+function calculateTax() {
+    let taxForm = document.getElementById("taxForm");
+
+    let region = document.getElementById("region").value;
+    let municipality = document.getElementById("municipality").value;
+    let ageIndex = parseInt(document.getElementById("age").value);
+    let euroCategoryIndex = parseInt(document.getElementById("euroCategory").value);
+    let power = parseInt(document.getElementById("power").value);
+    let hpRadioButton = document.getElementById("hp");
+
+    if (!power) {
+        return alert("Моля, въведете мощността на превозното средство.");
+    }
+
+    if (power <= 0) {
+        return alert("Моля, въведете число за мощност, което е положително.");
+    }
+
+    if (hpRadioButton.checked) {
+        power = Math.round(power * 0.73549875);
+    }
+
+    let town = data[region][municipality];
+    let ageFactor = ageFactors[ageIndex];
+    let euroCategoryFactor = town["Euro category"][euroCategoryIndex];
+    let powerFactor;
+
+    if (power <= 55) {
+        powerFactor = town["Power factor"][0];
+    } else if (power > 55 && power <= 74) {
+        powerFactor = town["Power factor"][1];
+    } else if (power > 74 && power <= 110) {
+        powerFactor = town["Power factor"][2];
+    } else if (power > 110 && power <= 150) {
+        powerFactor = town["Power factor"][3];
+    } else if (power > 150 && power <= 245) {
+        powerFactor = town["Power factor"][4];
+    } else if (power > 245) {
+        powerFactor = town["Power factor"][5];
+    }
+
+    let tax = power * powerFactor * ageFactor * euroCategoryFactor;
+
+    let resultTextElement = document.getElementById("resultText");
+    resultTextElement.textContent = `Вашият данък е ${tax.toFixed(2)}лв.`;
+
+    taxForm.style.display = "none";
+    resultTextElement.parentNode.style.display = "block";
+}
+
+function displayForm(e) {
+    let resultTextElement = document.getElementById("resultText");
+    resultTextElement.textContent = "";
+    e.target.parentNode.style.display = "none";
+
+    let taxForm = document.getElementById("taxForm");
+    taxForm.style.display = "block";
+}
+
+function changeInputFieldDefaultValue(e) {
+    let input = document.getElementById("power");
+
+    if (e.target.value === "kW") {
+        input.defaultValue = 74;
+    } else {
+        input.defaultValue = 100;
+    }
+}
+
+function changeSelectOptions(e) {
+    let region = e.target.value;
+    let selectElement = document.getElementById("municipality");
+    selectElement.innerHTML = "";
+
+    for (let municipality in data[region]) {
+        let option = document.createElement("option");
+        option.value = municipality;
+        option.textContent = data[region][municipality]["Cyrillic name"];
+        selectElement.appendChild(option);
+    }
+}
+
 let ageFactors = [2.3, 1.5, 1.3, 1, 1.1];
 
 let data = {
@@ -556,47 +638,47 @@ let data = {
             "Euro category": [1.3, 1.15, 1.15, 1.05, 0.9, 0.8, 0.6, 0.6],
             "Power factor": [0.34, 0.7, 1.43, 1.59, 1.8, 2.1]
         },
-		"Pazardzhik": {
+        "Pazardzhik": {
             "Cyrillic name": "Пазарджик",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.9, 0.8, 0.6, 0.6],
             "Power factor": [0.4, 0.54, 1.1, 2, 2, 2.1]
         },
-		"Bratsigovo": {
+        "Bratsigovo": {
             "Cyrillic name": "Брацигово",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
             "Power factor": [0.52, 0.7, 1.3, 1.5, 2, 2.5]
         },
-		"Velingrad": {
+        "Velingrad": {
             "Cyrillic name": "Велинград",
             "Euro category": [1.1, 1.1, 1.1, 1.05, 0.9, 0.7, 0.5, 0.5],
             "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
         },
-		"Lesichovo": {
+        "Lesichovo": {
             "Cyrillic name": "Лесичово",
             "Euro category": [1.2, 1.2, 1.2, 1, 0.9, 0.7, 0.5, 0.5],
             "Power factor": [0.5, 0.6, 1.3, 1.4, 1.6, 2.1]
         },
-		"Panagyurishte": {
+        "Panagyurishte": {
             "Cyrillic name": "Панагюрище",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
             "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
         },
-		"Peshtera": {
+        "Peshtera": {
             "Cyrillic name": "Пещера",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
             "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
         },
-		"Septemvri": {
+        "Septemvri": {
             "Cyrillic name": "Септември",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
             "Power factor": [0.45, 0.56, 1.1, 1.23, 1.6, 2.1]
         },
-		"Sarnitsa": {
+        "Sarnitsa": {
             "Cyrillic name": "Сърница",
             "Euro category": [1.1, 1.1, 1.1, 1, 1, 0.8, 0.6, 0.6],
             "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
         },
-		"Batak": {
+        "Batak": {
             "Cyrillic name": "Батак",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
             "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
@@ -906,6 +988,51 @@ let data = {
             "Cyrillic name": "Смолян",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
             "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Banite": {
+            "Cyrillic name": "Баните",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Borino": {
+            "Cyrillic name": "Борино",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Devin": {
+            "Cyrillic name": "Девин",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.8, 0.9, 1.15, 1.4, 2, 2.2]
+        },
+        "Dospat": {
+            "Cyrillic name": "Доспат",
+            "Euro category": [1.25, 1.25, 1.25, 1.05, 0.9, 0.7, 0.5, 0.5],
+            "Power factor": [0.8, 0.9, 1.3, 1.4, 1.6, 2.1]
+        },
+        "Zlatograd": {
+            "Cyrillic name": "Златоград",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.5, 0.6, 1.2, 1.4, 1.7, 2.2]
+        },
+        "Madan": {
+            "Cyrillic name": "Мадан",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.44, 0.6, 1.21, 1.36, 1.76, 2.31]
+        },
+        "Nedelino": {
+            "Cyrillic name": "Неделино",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.5, 0.6, 1.2, 1.4, 1.7, 2.2]
+        },
+        "Rudozem": {
+            "Cyrillic name": "Рудозем",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.35, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Chepelare": {
+            "Cyrillic name": "Чепеларе",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.4, 0.6, 1.1, 1.3, 1.6, 2.1]
         }
     },
     "Sofia": {
@@ -916,16 +1043,195 @@ let data = {
         }
     },
     "Sofia Region": {
-
+        "Bozhurishte": {
+            "Cyrillic name": "Божурище",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Botevgrad": {
+            "Cyrillic name": "Ботевград",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.4, 0.6, 1.2, 1.5, 1.9, 2.5]
+        },
+        "Godech": {
+            "Cyrillic name": "Годеч",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Gorna Malina": {
+            "Cyrillic name": "Горна Малина",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Dragoman": {
+            "Cyrillic name": "Драгоман",
+            "Euro category": [1.3, 1.2, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Elin Pelin": {
+            "Cyrillic name": "Елин Пелин",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.4, 0.54, 1.1, 1.5, 2, 2.5]
+        },
+        "Etropole": {
+            "Cyrillic name": "Етрополе",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.42, 0.6, 1.1, 1.5, 1.9, 2.3]
+        },
+        "Ihtiman": {
+            "Cyrillic name": "Ихтиман",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Koprivshtitsa": {
+            "Cyrillic name": "Копривщица",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.5, 0.7, 1.2, 1.3, 1.6, 2.1]
+        },
+        "Kostenets": {
+            "Cyrillic name": "Костенец",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.5, 0.64, 1.1, 1.3, 1.6, 2.1]
+        },
+        "Kostinbrod": {
+            "Cyrillic name": "Костинброд",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Pravets": {
+            "Cyrillic name": "Правец",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.45, 0.6, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Samokov": {
+            "Cyrillic name": "Самоков",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.44, 0.71, 1.45, 1.55, 1.77, 2.77]
+        },
+        "Svoge": {
+            "Cyrillic name": "Своге",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.5, 0.7, 1.4, 1.6, 1.7, 2.1]
+        },
+        "Slivnitsa": {
+            "Cyrillic name": "Сливница",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Zlatitsa": {
+            "Cyrillic name": "Златица",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Anton": {
+            "Cyrillic name": "Антон",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Pirdop": {
+            "Cyrillic name": "Пирдоп",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.45, 0.61, 1.2, 1.29, 1.6, 2.1]
+        },
+        "Markovo": {
+            "Cyrillic name": "Марково",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Chavdar": {
+            "Cyrillic name": "Чавдар",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Chelopech": {
+            "Cyrillic name": "Челопеч",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Dolna banya": {
+            "Cyrillic name": "Долна Баня",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        }
     },
     "Stara Zagora": {
+        "Bratya Daskalovi": {
+            "Cyrillic name": "Братя Даскалови",
+            "Euro category": [1.2, 1.2, 1.2, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.4, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Galabovo": {
+            "Cyrillic name": "Гълъбово",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.5, 0.7, 1.65, 1.85, 2.4, 3]
+        },
+        "Kazanlak": {
+            "Cyrillic name": "Казанлък",
+            "Euro category": [1.3, 1.3, 1.3, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.12]
+        },
+        "Maglizh": {
+            "Cyrillic name": "Мъглиж",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Opan": {
+            "Cyrillic name": "Опан",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Pavel banya": {
+            "Cyrillic name": "Павел баня",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Radnevo": {
+            "Cyrillic name": "Раднево",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.9, 0.7, 0.5, 0.5],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
         "Stara Zagora": {
             "Cyrillic name": "Стара Загора",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.9, 0.7, 0.5, 0.5],
             "Power factor": [0.5, 0.7, 1.5, 1.7, 1.8, 2.2]
+        },
+        "Chirpan": {
+            "Cyrillic name": "Чирпан",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Gurkovo": {
+            "Cyrillic name": "Гурково",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.9, 0.7, 0.5, 0.5],
+            "Power factor": [0.45, 0.65, 1.3, 1.48, 1.8, 2.3]
+        },
+        "Nikolaevo": {
+            "Cyrillic name": "Николаево",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.48, 0.65, 1.32, 1.48, 1.6, 2.1]
         }
     },
     "Targovishte": {
+        "Antonovo": {
+            "Cyrillic name": "Антоново",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Omurtag": {
+            "Cyrillic name": "Омуртаг",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.5, 0.7, 1.5, 1.7, 1.9, 2.2]
+        },
+        "Opaka": {
+            "Cyrillic name": "Опака",
+            "Euro category": [1.2, 1.2, 1.2, 1.05, 0.9, 0.7, 0.5, 0.5],
+            "Power factor": [0.6, 0.81, 1.65, 1.84, 1.9, 2.1]
+        },
+        "Popovo": {
+            "Cyrillic name": "Попово",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.9, 0.7, 0.5, 0.5],
+            "Power factor": [0.51, 0.65, 1.65, 1.84, 1.9, 2.1]
+        },
         "Targovishte": {
             "Cyrillic name": "Търговище",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
@@ -933,6 +1239,56 @@ let data = {
         }
     },
     "Haskovo": {
+        "Dimitrovgrad": {
+            "Cyrillic name": "Димитровград",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.85, 0.7, 0.5, 0.5],
+            "Power factor": [0.45, 0.6, 1.5, 1.8, 2, 2.4]
+        },
+        "Ivaylovgrad": {
+            "Cyrillic name": "Ивайловград",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.6, 0.7, 1.15, 1.25, 1.6, 2.1]
+        },
+        "Lyubimets": {
+            "Cyrillic name": "Любимец",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.4, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Madzharovo": {
+            "Cyrillic name": "Маджарово",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.8, 1, 1.3, 1.4, 1.6, 2.1]
+        },
+        "Mineralni bani": {
+            "Cyrillic name": "Минерални бани",
+            "Euro category": [1.2, 1.2, 1.2, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.48, 0.65, 1.2, 1.4, 1.6, 2.1]
+        },
+        "Svilengrad": {
+            "Cyrillic name": "Свиленград",
+            "Euro category": [1.3, 1.3, 1.3, 1, 0.85, 0.7, 0.6, 0.6],
+            "Power factor": [0.41, 0.65, 1.32, 1.45, 1.7, 2.2]
+        },
+        "Simeonovgrad": {
+            "Cyrillic name": "Симеоновград",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.]
+        },
+        "Stambolovo": {
+            "Cyrillic name": "Стамболово",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.52, 0.69, 1.38, 1.5, 1.6, 2.1]
+        },
+        "Harmanli": {
+            "Cyrillic name": "Харманли",
+            "Euro category": [1.2, 1.2, 1.2, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.4, 0.58, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Topolovgrad": {
+            "Cyrillic name": "Тополовград",
+            "Euro category": [1.3, 1.2, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.55, 1.1, 1.23, 1.6, 2.1]
+        },
         "Haskovo": {
             "Cyrillic name": "Хасково",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
@@ -940,6 +1296,51 @@ let data = {
         }
     },
     "Shumen": {
+        "Venets": {
+            "Cyrillic name": "Венец",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.6, 0.8, 1.45, 1.65, 2.3, 3]
+        },
+        "Varbitsa": {
+            "Cyrillic name": "Върбица",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.77, 1.04, 1.14, 1.3, 1.6, 2.1]
+        },
+        "Hitrino": {
+            "Cyrillic name": "Хитрино",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.7, 0.5, 0.5],
+            "Power factor": [0.4, 0.6, 1.3, 1.5, 1.8, 2.3]
+        },
+        "Kaolinovo": {
+            "Cyrillic name": "Каолиново",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.6, 0.81, 1.43, 1.48, 1.6, 2.3]
+        },
+        "Kaspichan": {
+            "Cyrillic name": "Каспичан",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.6, 0.6],
+            "Power factor": [0.34, 0.54, 1.2, 1.45, 2.35, 2.6]
+        },
+        "Nikola Kozlevo": {
+            "Cyrillic name": "Никола Козлево",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.5, 0.7, 1.2, 1.4, 2, 2.1]
+        },
+        "Novi pazar": {
+            "Cyrillic name": "Нови пазар",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.9, 0.8, 0.6, 0.6],
+            "Power factor": [0.5, 0.81, 1.5, 1.85, 2, 2.5]
+        },
+        "Veliki Preslav": {
+            "Cyrillic name": "Велики Преслав",
+            "Euro category": [1.25, 1.25, 1.25, 1.05, 0.9, 0.7, 0.6, 0.6],
+            "Power factor": [0.5, 0.68, 1.38, 1.55, 1.77, 2.5]
+        },
+        "Smyadovo": {
+            "Cyrillic name": "Смядово",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.5, 0.6, 1.54, 1.33, 1.6, 2.1]
+        },
         "Shumen": {
             "Cyrillic name": "Шумен",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
@@ -947,6 +1348,26 @@ let data = {
         }
     },
     "Yambol": {
+        "Bolyarovo": {
+            "Cyrillic name": "Болярово",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.4, 0.6, 1.23, 1.38, 1.6, 2.1]
+        },
+        "Elhovo": {
+            "Cyrillic name": "Елхово",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.1, 1.23, 1.6, 2.1]
+        },
+        "Straldzha": {
+            "Cyrillic name": "Стралджа",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
+            "Power factor": [0.34, 0.54, 1.32, 1.48, 1.92, 2.52]
+        },
+        "Tundzha": {
+            "Cyrillic name": "Тунджа",
+            "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.5, 0.5],
+            "Power factor": [0.6, 0.7, 1.2, 1.4, 1.8, 2.2]
+        },
         "Yambol": {
             "Cyrillic name": "Ямбол",
             "Euro category": [1.1, 1.1, 1.1, 1, 0.8, 0.6, 0.4, 0.4],
@@ -954,85 +1375,3 @@ let data = {
         }
     }
 };
-
-function calculateTax() {
-    let taxForm = document.getElementById("taxForm");
-
-    let region = document.getElementById("region").value;
-    let municipality = document.getElementById("municipality").value;
-    let ageIndex = parseInt(document.getElementById("age").value);
-    let euroCategoryIndex = parseInt(document.getElementById("euroCategory").value);
-    let power = parseInt(document.getElementById("power").value);
-    let hpRadioButton = document.getElementById("hp");
-
-    if (!power) {
-        return alert("Моля, въведете мощността на превозното средство.");
-    }
-
-    if (power <= 0) {
-        return alert("Моля, въведете число за мощност, което е положително.");
-    }
-
-    if (hpRadioButton.checked) {
-        power = Math.round(power * 0.73549875);
-    }
-
-    let town = data[region][municipality];
-    let ageFactor = ageFactors[ageIndex];
-    let euroCategoryFactor = town["Euro category"][euroCategoryIndex];
-    let powerFactor;
-
-    if (power <= 55) {
-        powerFactor = town["Power factor"][0];
-    } else if (power > 55 && power <= 74) {
-        powerFactor = town["Power factor"][1];
-    } else if (power > 74 && power <= 110) {
-        powerFactor = town["Power factor"][2];
-    } else if (power > 110 && power <= 150) {
-        powerFactor = town["Power factor"][3];
-    } else if (power > 150 && power <= 245) {
-        powerFactor = town["Power factor"][4];
-    } else if (power > 245) {
-        powerFactor = town["Power factor"][5];
-    }
-
-    let tax = power * powerFactor * ageFactor * euroCategoryFactor;
-
-    let resultTextElement = document.getElementById("resultText");
-    resultTextElement.textContent = `Вашият данък е ${tax.toFixed(2)}лв.`;
-
-    taxForm.style.display = "none";
-    resultTextElement.parentNode.style.display = "block";
-}
-
-function displayForm(e) {
-    let resultTextElement = document.getElementById("resultText");
-    resultTextElement.textContent = "";
-    e.target.parentNode.style.display = "none";
-
-    let taxForm = document.getElementById("taxForm");
-    taxForm.style.display = "block";
-}
-
-function changeInputFieldDefaultValue(e) {
-    let input = document.getElementById("power");
-
-    if (e.target.value === "kW") {
-        input.defaultValue = 74;
-    } else {
-        input.defaultValue = 100;
-    }
-}
-
-function changeSelectOptions(e) {
-    let region = e.target.value;
-    let selectElement = document.getElementById("municipality");
-    selectElement.innerHTML = "";
-
-    for (let municipality in data[region]) {
-        let option = document.createElement("option");
-        option.value = municipality;
-        option.textContent = data[region][municipality]["Cyrillic name"];
-        selectElement.appendChild(option);
-    }
-}
